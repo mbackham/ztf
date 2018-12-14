@@ -1,0 +1,7872 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "接口说明文档",
+    "title": "app-api文档"
+  },
+  "host": "116.62.118.104:8781",
+  "basePath": "/app-api",
+  "tags": [
+    {
+      "name": "产品/服务相关API",
+      "description": "App Prod Controller"
+    },
+    {
+      "name": "会员信息相关API",
+      "description": "App Mem Info Controller"
+    },
+    {
+      "name": "会员地址相关API",
+      "description": "App Mem Addr Controller"
+    },
+    {
+      "name": "内容相关API",
+      "description": "App Site Controller"
+    },
+    {
+      "name": "区域相关API",
+      "description": "App Area Controller"
+    },
+    {
+      "name": "工程师相关API",
+      "description": "App Engineer Controller"
+    },
+    {
+      "name": "幻灯栏目相关API",
+      "description": "App Part Controller"
+    },
+    {
+      "name": "支付相关API",
+      "description": "App Pay Controller"
+    },
+    {
+      "name": "班组区域相关API",
+      "description": "Team Area Controller"
+    },
+    {
+      "name": "用户相关API",
+      "description": "App User Controller"
+    },
+    {
+      "name": "登录相关API",
+      "description": "Login Controller"
+    },
+    {
+      "name": "订单相关API",
+      "description": "App Order Controller"
+    },
+    {
+      "name": "评论相关API",
+      "description": "App Comment Controller"
+    },
+    {
+      "name": "配置相关API",
+      "description": "App Conf Controller"
+    },
+    {
+      "name": "需求相关API",
+      "description": "App Require Controller"
+    }
+  ],
+  "paths": {
+    "/api/area/list": {
+      "post": {
+        "tags": [
+          "区域相关API"
+        ],
+        "summary": "获取区域列表",
+        "description": "获取区域列表",
+        "operationId": "listUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«AreaDictDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«AreaDto»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/comment/addComment": {
+      "post": {
+        "tags": [
+          "评论相关API"
+        ],
+        "summary": "新增用户评价",
+        "description": "新增用户评价",
+        "operationId": "addCommentUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«MemOrderCommDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/comment/getCommentStar": {
+      "post": {
+        "tags": [
+          "评论相关API"
+        ],
+        "summary": "获取工程师的评价星级",
+        "description": "获取工程师的评价星级",
+        "operationId": "getCommentStarUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«EnginnerStarVo»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/comment/listCommentTag": {
+      "post": {
+        "tags": [
+          "评论相关API"
+        ],
+        "summary": "获取评价标签列表",
+        "description": "获取评价标签列表",
+        "operationId": "listCommentTagUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«CommTagConfDto»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/conf/getSmConf": {
+      "post": {
+        "tags": [
+          "配置相关API"
+        ],
+        "summary": "获取系统配置",
+        "description": "获取系统配置，包括上门预约金、客服电话等",
+        "operationId": "getSmConfUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«SmConfVo»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/engineer/saveAvatar": {
+      "post": {
+        "tags": [
+          "工程师相关API"
+        ],
+        "summary": "保存工程师头像",
+        "description": "保存工程师头像",
+        "operationId": "saveAvatarUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«long»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/mem/info": {
+      "post": {
+        "tags": [
+          "会员信息相关API"
+        ],
+        "summary": "获取会员信息",
+        "description": "获取会员信息",
+        "operationId": "infoUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«MemDetailDto»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/mem/mod": {
+      "post": {
+        "tags": [
+          "会员信息相关API"
+        ],
+        "summary": "修改会员信息",
+        "description": "修改会员信息",
+        "operationId": "modUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«MemDetailDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/mem/setupMemJpushRegid": {
+      "post": {
+        "tags": [
+          "会员信息相关API"
+        ],
+        "summary": "绑定会员与极光推送regid(cid)",
+        "operationId": "setupMemJpushRegidUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«MemJpushDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/memAddr/add": {
+      "post": {
+        "tags": [
+          "会员地址相关API"
+        ],
+        "summary": "添加会员地址",
+        "description": "添加会员地址",
+        "operationId": "addUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«MemAddrDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«long»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/memAddr/checkLbs": {
+      "post": {
+        "tags": [
+          "会员地址相关API"
+        ],
+        "summary": "校验定位地址",
+        "description": "校验定位地址",
+        "operationId": "checkLbsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«LbsAreaData»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«AreaData»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/memAddr/del": {
+      "post": {
+        "tags": [
+          "会员地址相关API"
+        ],
+        "summary": "删除会员地址",
+        "description": "删除会员地址",
+        "operationId": "delUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«long»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/memAddr/getMemAddr": {
+      "post": {
+        "tags": [
+          "会员地址相关API"
+        ],
+        "summary": "获取会员最常用的地址",
+        "description": "获取会员最常用的地址,若无地址返回空数据",
+        "operationId": "getMemAddrUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«MemAddrDto»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/memAddr/info": {
+      "post": {
+        "tags": [
+          "会员地址相关API"
+        ],
+        "summary": "获取会员地址",
+        "description": "获取会员地址",
+        "operationId": "infoUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«long»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«MemAddrDto»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/memAddr/mod": {
+      "post": {
+        "tags": [
+          "会员地址相关API"
+        ],
+        "summary": "修改会员地址",
+        "description": "修改会员地址",
+        "operationId": "modUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«MemAddrDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/memAddr/page": {
+      "post": {
+        "tags": [
+          "会员地址相关API"
+        ],
+        "summary": "分页查询会员地址",
+        "description": "分页查询会员地址",
+        "operationId": "pageUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«PageDto«MemAddrQueryDto»»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«PageInfo«MemAddrDto»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/memAddr/setDefault": {
+      "post": {
+        "tags": [
+          "会员地址相关API"
+        ],
+        "summary": "设置/取消默认地址",
+        "description": "设置/取消默认地址",
+        "operationId": "setDefaultUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«MemAddrDefaultDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/addOrderService": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "服务方案确定",
+        "description": "服务方案确定",
+        "operationId": "addOrderServiceUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«OrderServiceDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/agreeOrderService": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "用户同意服务方案",
+        "description": "用户同意服务方案，入参：订单号",
+        "operationId": "agreeOrderServiceUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/applyOrderBack": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "申请退单",
+        "description": "申请退单",
+        "operationId": "applyOrderBackUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«OrderBackApplyDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/applyOrderFault": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "订单故障申报",
+        "description": "订单故障申报",
+        "operationId": "applyOrderFaultUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«OrderFaultDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/cancelOrder": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "取消订单",
+        "description": "取消订单，入参：订单号",
+        "operationId": "cancelOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/changeOrderService": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "服务方案变更",
+        "description": "服务方案变更",
+        "operationId": "changeOrderServiceUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«OrderServiceDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/confrimSubscribe": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "确认预约时间",
+        "description": "确认预约时间，入参：订单号",
+        "operationId": "confrimSubscribeUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/confrimVisit": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "确定上门",
+        "description": "确定上门，入参：订单号",
+        "operationId": "confrimVisitUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/countOrderNum": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "获取订单数量",
+        "description": "获取订单数量,入参：订单分类状态，0 全部，1 待分配，2 处理中，3 已完成,4 待预约",
+        "operationId": "countOrderNumUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«int»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«int»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/createOrder": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "提交订单",
+        "description": "提交订单",
+        "operationId": "createOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«MemOrderDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/finishOrder": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "订单完工资料补齐",
+        "description": "订单完工资料补齐",
+        "operationId": "finishOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«OrderFinishDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/finishService": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "施工完成",
+        "description": "施工完成",
+        "operationId": "finishServiceUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/getOrderBackReason": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "获取退单原因",
+        "description": "获取退单原因",
+        "operationId": "getOrderBackReasonUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«DictValueVo»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/getOrderDetail": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "获取订单详情",
+        "description": "获取订单详情，入参：订单号",
+        "operationId": "getOrderDetailUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«OrderDetailVo»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/getOrderInfo": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "获取订单信息",
+        "description": "获取订单信息，入参：订单号",
+        "operationId": "getOrderInfoUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«OrderVo»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/getOrderPayInfo": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "获取订单待支付信息",
+        "description": "获取订单待支付信息，入参：订单号",
+        "operationId": "getOrderPayInfoUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«MemOrderPayVo»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/getOrderServiceDetail": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "获取订单服务方案详情",
+        "description": "获取订单服务方案详情，入参：订单号",
+        "operationId": "getOrderServiceDetailUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«OrderProdDetailVo»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/listEngineerOrder": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "获取工程师订单列表",
+        "description": "获取工程师订单列表",
+        "operationId": "listEngineerOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«EngineerOrderQueryDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«OrderVo»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/listOrderCourse": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "获取订单历程",
+        "description": "获取订单历程，入参：订单号",
+        "operationId": "listOrderCourseUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«OrderRecordVo»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/modSubscribeTime": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "修改预约时间",
+        "description": "修改预约时间",
+        "operationId": "modSubscribeTimeUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«OrderVisitDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/pageEngineerOrder": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "分页查询工程师订单",
+        "description": "分页查询工程师订单",
+        "operationId": "pageEngineerOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«PageDto«EngineerOrderQueryDto»»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«PageInfo«OrderVo»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/pageMemOrder": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "分页查询会员订单",
+        "description": "分页查询会员订单",
+        "operationId": "pageMemOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«PageDto«MemOrderQueryDto»»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«PageInfo«OrderVo»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/refuseOrderService": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "用户驳回服务方案",
+        "description": "用户驳回服务方案，入参：订单号",
+        "operationId": "refuseOrderServiceUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/robOrder": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "抢单",
+        "description": "抢单，入参：订单号",
+        "operationId": "robOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«RobOrderVo»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/statEngineerOrder": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "获取工程师订单概述",
+        "description": "获取工程师订单概述，入参：时间类型，1 历史 2 本周",
+        "operationId": "statEngineerOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«int»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«EngineerOrderDto»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/turnOrderDispute": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "订单转争议",
+        "description": "订单转争议",
+        "operationId": "turnOrderDisputeUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«OrderDisputeDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/turnOrderLost": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "订单转失联",
+        "description": "订单转失联",
+        "operationId": "turnOrderLostUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«OrderLostDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/order/urgeOrder": {
+      "post": {
+        "tags": [
+          "订单相关API"
+        ],
+        "summary": "催单",
+        "description": "催单，入参：订单号",
+        "operationId": "urgeOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/part/selectPartContent": {
+      "post": {
+        "tags": [
+          "幻灯栏目相关API"
+        ],
+        "summary": "获取栏目幻灯内容列表,传入栏目类型(约定...)",
+        "operationId": "selectPartContentUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«int»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«PartContentDto»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/pay/aliAppPay": {
+      "post": {
+        "tags": [
+          "支付相关API"
+        ],
+        "summary": "支付宝APP支付准备",
+        "description": "支付宝APP支付准备",
+        "operationId": "aliAppPayUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«MemOrderPayDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/pay/getWxOpenConfig": {
+      "post": {
+        "tags": [
+          "支付相关API"
+        ],
+        "summary": "获取微信开放平台配置参数",
+        "description": "获取微信开放平台配置参数",
+        "operationId": "getWxOpenConfigUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«WxOpenConfig»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/pay/wxAppPay": {
+      "post": {
+        "tags": [
+          "支付相关API"
+        ],
+        "summary": "微信APP支付准备",
+        "description": "微信APP支付准备",
+        "operationId": "wxAppPayUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«MemOrderPayDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«WxAppPayVo»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/pay/wxMpPay": {
+      "post": {
+        "tags": [
+          "支付相关API"
+        ],
+        "summary": "微信公众号支付准备",
+        "description": "微信公众号支付准备",
+        "operationId": "wxMpPayUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«MemOrderPayDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«WxJsApiPayVo»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/prod/getProdDetail": {
+      "post": {
+        "tags": [
+          "产品/服务相关API"
+        ],
+        "summary": "获取指定产品/服务的详情",
+        "description": "获取指定产品/服务的详情，入参：产品/服务ID",
+        "operationId": "getProdDetailUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«long»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/prod/listAllProd": {
+      "post": {
+        "tags": [
+          "产品/服务相关API"
+        ],
+        "summary": "获取所有产品/服务",
+        "description": "获取所有产品/服务",
+        "operationId": "listAllProdUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«ProdDto»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/prod/listProd": {
+      "post": {
+        "tags": [
+          "产品/服务相关API"
+        ],
+        "summary": "获取产品/服务列表",
+        "description": "获取产品/服务列表，入参：产品/服务类别ID",
+        "operationId": "listProdUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«long»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«ProdDto»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/prod/listProdCate": {
+      "post": {
+        "tags": [
+          "产品/服务相关API"
+        ],
+        "summary": "获取产品/服务类别列表",
+        "description": "获取产品/服务类别列表",
+        "operationId": "listProdCateUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«ProdCateDto»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/prod/listProdCateProd": {
+      "post": {
+        "tags": [
+          "产品/服务相关API"
+        ],
+        "summary": "获取产品/服务列表(带产品/服务类别)",
+        "description": "获取产品/服务列表(带产品/服务类别)",
+        "operationId": "listProdCateProdUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«ProdCateProdVo»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/require/listRequire": {
+      "post": {
+        "tags": [
+          "需求相关API"
+        ],
+        "summary": "获取指定需求类别的需求列表",
+        "description": "获取指定需求类别的需求列表，入参：需求类别ID，requireCateId",
+        "operationId": "listRequireUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«long»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«RequireDto»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/require/listRequireCate": {
+      "post": {
+        "tags": [
+          "需求相关API"
+        ],
+        "summary": "获取需求类别列表",
+        "description": "获取需求类别列表",
+        "operationId": "listRequireCateUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«RequireCateDto»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/site/getServiceProtocol": {
+      "post": {
+        "tags": [
+          "内容相关API"
+        ],
+        "summary": "获取服务协议",
+        "description": "获取服务协议",
+        "operationId": "getServiceProtocolUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/teamArea/listEnginnerTeamArea": {
+      "post": {
+        "tags": [
+          "班组区域相关API"
+        ],
+        "summary": "获取工程师所在班组区域信息",
+        "description": "获取工程师所在班组区域信息，入参：工程师ID",
+        "operationId": "listEnginnerTeamAreaUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«long»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«List«TeamAreaVo»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/user/getCurrentUser": {
+      "post": {
+        "tags": [
+          "用户相关API"
+        ],
+        "summary": "获取当前登录用户信息",
+        "operationId": "getCurrentUserUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«用户信息»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/user/getUser": {
+      "post": {
+        "tags": [
+          "用户相关API"
+        ],
+        "summary": "通过用户ID获取用户信息",
+        "operationId": "getUserUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«long»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«UserDto»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/user/updateUserMobile": {
+      "post": {
+        "tags": [
+          "用户相关API"
+        ],
+        "summary": "修改用户手机号,短信验证码发送到新手机号上",
+        "operationId": "updateUserMobileUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«UserMobileDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/login/captcha/check": {
+      "post": {
+        "tags": [
+          "登录相关API"
+        ],
+        "summary": "图片验证码校验",
+        "operationId": "checkCaptchaUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "req",
+            "description": "req",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/login/login": {
+      "post": {
+        "tags": [
+          "登录相关API"
+        ],
+        "summary": "登录",
+        "operationId": "loginUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«LoginDto»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«登录token»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/login/sendAuthCode": {
+      "post": {
+        "tags": [
+          "登录相关API"
+        ],
+        "summary": "发送手机验证码，传入手机号",
+        "operationId": "sendAuthCodeUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "req",
+            "description": "req",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«string»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/logout": {
+      "post": {
+        "tags": [
+          "登录相关API"
+        ],
+        "summary": "退出登录",
+        "operationId": "logoutUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestObject«Void»"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "令牌",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Result«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "AreaData": {
+      "type": "object",
+      "properties": {
+        "areaId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "区域ID"
+        },
+        "areaName": {
+          "type": "string",
+          "description": "区域名称"
+        },
+        "cityId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "城市ID"
+        },
+        "cityName": {
+          "type": "string",
+          "description": "城市名称"
+        },
+        "provinceId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "省份ID"
+        },
+        "provinceName": {
+          "type": "string",
+          "description": "省份名称"
+        },
+        "streetId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "街道ID"
+        },
+        "streetName": {
+          "type": "string",
+          "description": "街道名称"
+        }
+      },
+      "title": "AreaData",
+      "description": "区域信息"
+    },
+    "AreaDictDto": {
+      "type": "object",
+      "properties": {
+        "areaLevel": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1:省,2:市,3:区,4:街道",
+          "description": "地域等级",
+          "enum": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "upperAreaId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "上级区域ID"
+        }
+      },
+      "title": "AreaDictDto",
+      "description": "区域字典"
+    },
+    "AreaDto": {
+      "type": "object",
+      "properties": {
+        "amapCode": {
+          "type": "string",
+          "description": "高德地图区域编码"
+        },
+        "areaId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "区域ID"
+        },
+        "areaLevel": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1:省,2:市,3:区,4:街道",
+          "description": "地域等级",
+          "enum": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "areaLevelName": {
+          "type": "string",
+          "example": "省,市,区,街道",
+          "description": "地域等级"
+        },
+        "areaName": {
+          "type": "string",
+          "description": "区域名称"
+        },
+        "baiduCode": {
+          "type": "string",
+          "description": "百度地图区域编码"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "排序"
+        },
+        "upperAreaId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "上级区域ID"
+        }
+      },
+      "title": "AreaDto",
+      "description": "区域信息"
+    },
+    "CommTagConfDto": {
+      "type": "object",
+      "required": [
+        "tagCname"
+      ],
+      "properties": {
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "排序"
+        },
+        "tagCname": {
+          "type": "string",
+          "description": "标签名称"
+        },
+        "tagId": {
+          "type": "integer",
+          "format": "int32",
+          "description": "标签ID"
+        }
+      },
+      "title": "CommTagConfDto",
+      "description": "评价标签配置，新增时tagId为空，修改时tagId不能为空"
+    },
+    "CommTagScoreDto": {
+      "type": "object",
+      "properties": {
+        "commScore": {
+          "type": "number",
+          "description": "评分"
+        },
+        "tagCname": {
+          "type": "string",
+          "description": "标签名称"
+        },
+        "tagId": {
+          "type": "integer",
+          "format": "int32",
+          "description": "标签ID"
+        }
+      },
+      "title": "CommTagScoreDto",
+      "description": "标签评分信息"
+    },
+    "DictValueVo": {
+      "type": "object",
+      "required": [
+        "keyValue",
+        "valueName"
+      ],
+      "properties": {
+        "keyValue": {
+          "type": "string",
+          "description": "数据字典值"
+        },
+        "valueName": {
+          "type": "string",
+          "description": "数据字典值名称"
+        }
+      },
+      "title": "DictValueVo",
+      "description": "系统数据字典值"
+    },
+    "EngineerOrderDto": {
+      "type": "object",
+      "properties": {
+        "memNum": {
+          "type": "integer",
+          "format": "int64",
+          "description": "服务客户量"
+        },
+        "totalAmount": {
+          "type": "number",
+          "description": "总金额"
+        },
+        "totalOrderNum": {
+          "type": "integer",
+          "format": "int64",
+          "description": "总单数"
+        }
+      },
+      "title": "EngineerOrderDto",
+      "description": "工程师订单概要信息"
+    },
+    "EngineerOrderQueryDto": {
+      "type": "object",
+      "properties": {
+        "orderCateState": {
+          "type": "integer",
+          "format": "int32",
+          "example": "0 全部订单，1 待分配(可抢)订单，2 处理中订单，3 已完成订单,4 待预约订单,5 待处理订单,6 退单订单 7 争议订单 8 终止订单 9 失联订单 10 故障订单 11 催单订单, 12 全部异常订单",
+          "description": "订单分类标识"
+        },
+        "orderId": {
+          "type": "string",
+          "description": "订单号"
+        },
+        "orderNum": {
+          "type": "integer",
+          "format": "int32",
+          "example": "如：取2笔订单，则传2",
+          "description": "订单数量"
+        },
+        "querySort": {
+          "type": "array",
+          "description": "排序条件",
+          "items": {
+            "$ref": "#/definitions/SortDto"
+          }
+        },
+        "queryText": {
+          "type": "string",
+          "example": "客户名称,订单号",
+          "description": "查询文本"
+        }
+      },
+      "title": "EngineerOrderQueryDto",
+      "description": "工程师订单查询条件信息"
+    },
+    "EnginnerStarVo": {
+      "type": "object",
+      "required": [
+        "engineerName",
+        "mobile"
+      ],
+      "properties": {
+        "avatarImagePath": {
+          "type": "string",
+          "description": "头像"
+        },
+        "badNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "差评量"
+        },
+        "engineerName": {
+          "type": "string",
+          "description": "姓名"
+        },
+        "goodNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "好评量"
+        },
+        "middleNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "中评量"
+        },
+        "mobile": {
+          "type": "string",
+          "description": "手机号码"
+        },
+        "tagScore": {
+          "type": "array",
+          "description": "标签评分",
+          "items": {
+            "$ref": "#/definitions/CommTagScoreDto"
+          }
+        },
+        "totalScore": {
+          "type": "number",
+          "description": "总评分"
+        }
+      },
+      "title": "EnginnerStarVo",
+      "description": "工程师星级信息"
+    },
+    "LbsAreaData": {
+      "type": "object",
+      "properties": {
+        "lbsAreaCode": {
+          "type": "string",
+          "description": "地图区县Code"
+        },
+        "lbsCityCode": {
+          "type": "string",
+          "description": "地图城市Code"
+        },
+        "lbsProvinceCode": {
+          "type": "string",
+          "description": "地图省份Code"
+        }
+      },
+      "title": "LbsAreaData",
+      "description": "定位区域信息"
+    },
+    "LoginDto": {
+      "type": "object",
+      "required": [
+        "userType",
+        "username"
+      ],
+      "properties": {
+        "authCode": {
+          "type": "string",
+          "description": "短信验证码"
+        },
+        "captcha": {
+          "type": "string",
+          "description": "图片验证码"
+        },
+        "clientType": {
+          "type": "string",
+          "example": "ANDROID",
+          "description": "客户端类型:WEB,WEIXIN,ANDROID,IOS"
+        },
+        "clientVersion": {
+          "type": "string",
+          "example": "1.0.0",
+          "description": "客户端版本号"
+        },
+        "password": {
+          "type": "string",
+          "description": "登录密码,MD5加密32位小写"
+        },
+        "userType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "登录类型:1 系统用户,2 工程师,9 客户"
+        },
+        "username": {
+          "type": "string",
+          "description": "登录帐号,手机号"
+        }
+      },
+      "title": "LoginDto",
+      "description": "登录请求参数"
+    },
+    "MemAddrDefaultDto": {
+      "type": "object",
+      "required": [
+        "addressId",
+        "isDefault"
+      ],
+      "properties": {
+        "addressId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "地址ID"
+        },
+        "isDefault": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1：是,0：否",
+          "description": "是否默认地址",
+          "enum": [
+            0,
+            1
+          ]
+        }
+      },
+      "title": "MemAddrDefaultDto",
+      "description": "会员默认地址信息"
+    },
+    "MemAddrDto": {
+      "type": "object",
+      "required": [
+        "addr",
+        "area",
+        "areaId",
+        "city",
+        "cityId",
+        "consignee",
+        "mobile",
+        "province",
+        "provinceId",
+        "street",
+        "streetId"
+      ],
+      "properties": {
+        "addr": {
+          "type": "string",
+          "description": "详细地址"
+        },
+        "addressId": {
+          "type": "integer",
+          "format": "int64",
+          "example": "修改地址时必传",
+          "description": "地址ID"
+        },
+        "area": {
+          "type": "string",
+          "description": "区县"
+        },
+        "areaId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "区域ID"
+        },
+        "city": {
+          "type": "string",
+          "description": "城市"
+        },
+        "cityId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "城市ID"
+        },
+        "consignee": {
+          "type": "string",
+          "description": "联系人"
+        },
+        "isDefault": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1：是,0：否",
+          "description": "是否默认地址",
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "mobile": {
+          "type": "string",
+          "description": "手机号码"
+        },
+        "province": {
+          "type": "string",
+          "description": "省份"
+        },
+        "provinceId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "省份ID"
+        },
+        "street": {
+          "type": "string",
+          "description": "街道"
+        },
+        "streetId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "街道ID"
+        }
+      },
+      "title": "MemAddrDto",
+      "description": "会员地址信息"
+    },
+    "MemAddrQueryDto": {
+      "type": "object",
+      "title": "MemAddrQueryDto",
+      "description": "会员地址查询条件"
+    },
+    "MemDetailDto": {
+      "type": "object",
+      "properties": {
+        "addr": {
+          "type": "string",
+          "description": "详细地址"
+        },
+        "area": {
+          "type": "string",
+          "description": "区县"
+        },
+        "areaId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "区域ID"
+        },
+        "avatarId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "头像ID"
+        },
+        "avatarUrl": {
+          "type": "string",
+          "description": "头像图片URL"
+        },
+        "city": {
+          "type": "string",
+          "description": "城市"
+        },
+        "cityId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "城市ID"
+        },
+        "memName": {
+          "type": "string",
+          "description": "姓名"
+        },
+        "province": {
+          "type": "string",
+          "description": "省份"
+        },
+        "provinceId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "省份ID"
+        },
+        "relaPhone": {
+          "type": "string",
+          "description": "联系电话"
+        },
+        "street": {
+          "type": "string",
+          "description": "街道"
+        },
+        "streetId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "街道ID"
+        }
+      },
+      "title": "MemDetailDto",
+      "description": "会员详细信息"
+    },
+    "MemJpushDto": {
+      "type": "object",
+      "required": [
+        "appKey",
+        "regId"
+      ],
+      "properties": {
+        "appKey": {
+          "type": "string",
+          "example": "APPTEAM",
+          "description": "APP应用KEY:班组端《APPTEAM》,用户端《APPMEM》,"
+        },
+        "clientType": {
+          "type": "string",
+          "example": "ANDROID",
+          "description": "客户端类型:WEB,WEIXIN,ANDROID,IOS"
+        },
+        "clientVersion": {
+          "type": "string",
+          "example": "1.0.0",
+          "description": "客户端版本号"
+        },
+        "regId": {
+          "type": "string",
+          "example": "weqesdwe2332dewe23e",
+          "description": "极光推送regid(cid)"
+        }
+      },
+      "title": "MemJpushDto",
+      "description": "会员极光推送CID信息"
+    },
+    "MemOrderCommDto": {
+      "type": "object",
+      "required": [
+        "commResult",
+        "orderId",
+        "tagScore"
+      ],
+      "properties": {
+        "commDesc": {
+          "type": "string",
+          "description": "评价描述"
+        },
+        "commImageId": {
+          "type": "array",
+          "description": "评价晒图",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "commResult": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 好评,2 中评,3 差评",
+          "description": "整体评论",
+          "enum": [
+            1,
+            2,
+            3
+          ]
+        },
+        "orderId": {
+          "type": "string",
+          "description": "订单ID"
+        },
+        "tagScore": {
+          "type": "array",
+          "description": "标签评分",
+          "items": {
+            "$ref": "#/definitions/CommTagScoreDto"
+          }
+        }
+      },
+      "title": "MemOrderCommDto",
+      "description": "会员评价信息"
+    },
+    "MemOrderDto": {
+      "type": "object",
+      "required": [
+        "addressId",
+        "endTime",
+        "orderFrom",
+        "orderRequire",
+        "startTime"
+      ],
+      "properties": {
+        "addressId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "地址ID"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "预约上门结束时间"
+        },
+        "orderFrom": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 安卓 2 IOS 3 微信公众号",
+          "description": "订单来源"
+        },
+        "orderRequire": {
+          "type": "array",
+          "description": "原始需求",
+          "items": {
+            "$ref": "#/definitions/OrderRequireDto"
+          }
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "预约上门开始时间"
+        }
+      },
+      "title": "MemOrderDto",
+      "description": "会员订单信息"
+    },
+    "MemOrderPayDto": {
+      "type": "object",
+      "required": [
+        "orderId",
+        "payCate"
+      ],
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "description": "订单ID"
+        },
+        "payCate": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 上门费支付,2 服务完成时支付",
+          "description": "支付场景"
+        }
+      },
+      "title": "MemOrderPayDto",
+      "description": "会员订单支付提交信息"
+    },
+    "MemOrderPayVo": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "待支付金额"
+        },
+        "orderId": {
+          "type": "string",
+          "description": "订单ID"
+        }
+      },
+      "title": "MemOrderPayVo",
+      "description": "会员订单待支付信息"
+    },
+    "MemOrderQueryDto": {
+      "type": "object",
+      "required": [
+        "orderCateState"
+      ],
+      "properties": {
+        "orderCateState": {
+          "type": "integer",
+          "format": "int32",
+          "example": "0 全部订单，1 待分配订单，2 进行中订单，3 已完成订单，4 非标准订单，5 故障申报订单，6 退款订单,7 无法处理订单",
+          "description": "订单分类标识"
+        },
+        "orderId": {
+          "type": "string",
+          "description": "订单号"
+        },
+        "querySort": {
+          "type": "array",
+          "description": "排序条件",
+          "items": {
+            "$ref": "#/definitions/SortDto"
+          }
+        },
+        "queryText": {
+          "type": "string",
+          "example": "客户名称,订单号",
+          "description": "查询文本"
+        }
+      },
+      "title": "MemOrderQueryDto",
+      "description": "会员订单查询条件信息"
+    },
+    "OrderBackApplyDto": {
+      "type": "object",
+      "required": [
+        "orderId"
+      ],
+      "properties": {
+        "backImageId": {
+          "type": "array",
+          "description": "图片列表",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "backReason": {
+          "type": "string",
+          "description": "退单原因"
+        },
+        "orderId": {
+          "type": "string",
+          "description": "订单ID"
+        },
+        "reasonId": {
+          "type": "string",
+          "description": "退单原因ID"
+        }
+      },
+      "title": "OrderBackApplyDto",
+      "description": "申请退单信息"
+    },
+    "OrderCommentVo": {
+      "type": "object",
+      "properties": {
+        "commDesc": {
+          "type": "string",
+          "description": "评价描述"
+        },
+        "commImagePath": {
+          "type": "array",
+          "description": "评价图片",
+          "items": {
+            "type": "string"
+          }
+        },
+        "commResult": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 好评,2 中评,3 差评",
+          "description": "整体评论"
+        },
+        "tagScore": {
+          "type": "array",
+          "description": "标签评分",
+          "items": {
+            "$ref": "#/definitions/CommTagScoreDto"
+          }
+        }
+      },
+      "title": "OrderCommentVo",
+      "description": "订单评价信息"
+    },
+    "OrderDetailVo": {
+      "type": "object",
+      "required": [
+        "createTime",
+        "endTime",
+        "orderId",
+        "orderState"
+      ],
+      "properties": {
+        "abnormalCreateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "异常申请时间"
+        },
+        "abnormalImagePath": {
+          "type": "array",
+          "description": "异常订单图片路径",
+          "items": {
+            "type": "string"
+          }
+        },
+        "abnormalRemark": {
+          "type": "string",
+          "example": "如：终止时为终止原因，争议时为争议原因",
+          "description": "异常原因"
+        },
+        "addr": {
+          "type": "string",
+          "description": "详细地址"
+        },
+        "area": {
+          "type": "string",
+          "description": "区县"
+        },
+        "badOrder": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 是,0 否",
+          "description": "是否恶意订单",
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "city": {
+          "type": "string",
+          "description": "城市"
+        },
+        "commentDesc": {
+          "type": "string",
+          "description": "评价内容"
+        },
+        "confirmTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "确认上门时间"
+        },
+        "consignee": {
+          "type": "string",
+          "description": "联系人"
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间"
+        },
+        "csServiceDesc": {
+          "type": "string",
+          "description": "服务描述(客服)"
+        },
+        "dealState": {
+          "type": "integer",
+          "format": "int32",
+          "example": "0 待处理 1 完成 5 处理中",
+          "description": "异常订单处理状态"
+        },
+        "dealSuggest": {
+          "type": "string",
+          "description": "处理结果"
+        },
+        "dispatchTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "派发/抢单时间"
+        },
+        "dispatchType": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 系统派发 2 抢单",
+          "description": "订单派发方式",
+          "enum": [
+            1,
+            2
+          ]
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "预约上门结束时间"
+        },
+        "engineerAvatar": {
+          "type": "string",
+          "description": "工程师头像"
+        },
+        "engineerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "工程师ID"
+        },
+        "engineerMobile": {
+          "type": "string",
+          "description": "工程师电话"
+        },
+        "engineerName": {
+          "type": "string",
+          "description": "工程师姓名"
+        },
+        "finalFee": {
+          "type": "number",
+          "description": "最终费用"
+        },
+        "finishRemark": {
+          "type": "string",
+          "description": "完工备注"
+        },
+        "finishTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "完成时间"
+        },
+        "isComment": {
+          "type": "integer",
+          "format": "int32",
+          "example": "0 未评价 1 已评价",
+          "description": "是否已评价"
+        },
+        "materialFee": {
+          "type": "number",
+          "description": "材料总费用"
+        },
+        "mobile": {
+          "type": "string",
+          "description": "手机号码"
+        },
+        "orderCate": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 正常订单,2 退单订单,3 争议订单,4 终止订单,5 失联订单",
+          "description": "当前订单类别"
+        },
+        "orderCateName": {
+          "type": "string",
+          "description": "当前订单类别名称"
+        },
+        "orderCheck": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 已抽检 0 未抽检",
+          "description": "是否已抽检",
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "orderComment": {
+          "description": "订单评价信息",
+          "$ref": "#/definitions/OrderCommentVo"
+        },
+        "orderFilePath": {
+          "type": "array",
+          "description": "订单完工文件路径",
+          "items": {
+            "type": "string"
+          }
+        },
+        "orderFocus": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 已关注,0 未关注",
+          "description": "是否已关注",
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "orderId": {
+          "type": "string",
+          "description": "订单ID"
+        },
+        "orderRemainVo": {
+          "description": "剩余时间",
+          "$ref": "#/definitions/OrderRemainVo"
+        },
+        "orderRemark": {
+          "type": "string",
+          "description": "订单完工备注"
+        },
+        "orderRequire": {
+          "type": "array",
+          "description": "订单需求",
+          "items": {
+            "$ref": "#/definitions/OrderRequireDto"
+          }
+        },
+        "orderService": {
+          "type": "array",
+          "description": "订单服务",
+          "items": {
+            "$ref": "#/definitions/OrderProdDetailVo"
+          }
+        },
+        "orderState": {
+          "type": "integer",
+          "format": "int32",
+          "description": "订单状态"
+        },
+        "orderStateName": {
+          "type": "string",
+          "description": "订单状态名称"
+        },
+        "orderType": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 标准订单,2 非标准订单",
+          "description": "订单类型",
+          "enum": [
+            1,
+            2
+          ]
+        },
+        "orderTypeName": {
+          "type": "string",
+          "description": "订单类型名称"
+        },
+        "province": {
+          "type": "string",
+          "description": "省份"
+        },
+        "serviceFee": {
+          "type": "number",
+          "description": "服务总费用"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "预约上门开始时间"
+        },
+        "street": {
+          "type": "string",
+          "description": "街道"
+        },
+        "subscribeFee": {
+          "type": "number",
+          "description": "上门服务预约费"
+        },
+        "subscribeTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "预约上门时间"
+        },
+        "teamId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "班组ID"
+        },
+        "teamName": {
+          "type": "string",
+          "description": "班组名称"
+        },
+        "totalScore": {
+          "type": "number",
+          "description": "工程师总评分"
+        },
+        "urgeOrder": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 是 0 否",
+          "description": "客户是否催单",
+          "enum": [
+            0,
+            1
+          ]
+        }
+      },
+      "title": "OrderDetailVo",
+      "description": "订单详细信息"
+    },
+    "OrderDisputeDto": {
+      "type": "object",
+      "required": [
+        "orderId"
+      ],
+      "properties": {
+        "imageId": {
+          "type": "array",
+          "description": "图片列表",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "orderId": {
+          "type": "string",
+          "description": "订单ID"
+        },
+        "remark": {
+          "type": "string",
+          "description": "备注"
+        }
+      },
+      "title": "OrderDisputeDto",
+      "description": "订单争议信息"
+    },
+    "OrderFaultDto": {
+      "type": "object",
+      "required": [
+        "orderId"
+      ],
+      "properties": {
+        "faultImageId": {
+          "type": "array",
+          "description": "故障申报图片ID列表",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "orderId": {
+          "type": "string",
+          "description": "订单ID"
+        },
+        "remark": {
+          "type": "string",
+          "description": "备注"
+        }
+      },
+      "title": "OrderFaultDto",
+      "description": "订单故障申报信息"
+    },
+    "OrderFinishDto": {
+      "type": "object",
+      "required": [
+        "orderId"
+      ],
+      "properties": {
+        "imageId": {
+          "type": "array",
+          "description": "图片列表",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "orderId": {
+          "type": "string",
+          "description": "订单ID"
+        },
+        "remark": {
+          "type": "string",
+          "description": "备注"
+        }
+      },
+      "title": "OrderFinishDto",
+      "description": "订单完工信息"
+    },
+    "OrderLostDto": {
+      "type": "object",
+      "required": [
+        "orderId"
+      ],
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "description": "订单ID"
+        },
+        "remark": {
+          "type": "string",
+          "description": "备注"
+        }
+      },
+      "title": "OrderLostDto",
+      "description": "订单失联信息"
+    },
+    "OrderProdDetailVo": {
+      "type": "object",
+      "properties": {
+        "prodId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "服务ID"
+        },
+        "prodImagePath": {
+          "type": "string",
+          "description": "产品/服务封面图片"
+        },
+        "prodMaterial": {
+          "type": "array",
+          "description": "产品/服务材料",
+          "items": {
+            "$ref": "#/definitions/OrderProdMaterialVo"
+          }
+        },
+        "prodName": {
+          "type": "string",
+          "description": "服务名称"
+        },
+        "prodNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "数量"
+        },
+        "totalPrice": {
+          "type": "number",
+          "description": "总价"
+        },
+        "unit": {
+          "type": "string",
+          "description": "单位"
+        },
+        "unitName": {
+          "type": "string",
+          "description": "单位名称"
+        },
+        "unitPrice": {
+          "type": "number",
+          "description": "单价"
+        }
+      },
+      "title": "OrderProdDetailVo",
+      "description": "订单产品/服务详细信息"
+    },
+    "OrderProdDto": {
+      "type": "object",
+      "properties": {
+        "prodId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "服务ID"
+        },
+        "prodNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "数量"
+        }
+      },
+      "title": "OrderProdDto",
+      "description": "订单产品/服务信息"
+    },
+    "OrderProdMaterialVo": {
+      "type": "object",
+      "properties": {
+        "materialId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "材料ID"
+        },
+        "materialName": {
+          "type": "string",
+          "description": "材料名称"
+        },
+        "materialNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "数量"
+        },
+        "totalPrice": {
+          "type": "number",
+          "description": "总价"
+        },
+        "unit": {
+          "type": "string",
+          "description": "单位"
+        },
+        "unitName": {
+          "type": "string",
+          "description": "单位名称"
+        },
+        "unitPrice": {
+          "type": "number",
+          "description": "单价"
+        }
+      },
+      "title": "OrderProdMaterialVo",
+      "description": "订单服务材料信息"
+    },
+    "OrderRecordVo": {
+      "type": "object",
+      "properties": {
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "操作时间"
+        },
+        "operName": {
+          "type": "string",
+          "description": "操作名称"
+        },
+        "operType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "操作类型"
+        },
+        "operTypeName": {
+          "type": "string",
+          "description": "操作类型名称"
+        },
+        "remark": {
+          "type": "string",
+          "description": "操作说明"
+        }
+      },
+      "title": "OrderRecordVo",
+      "description": "订单服务过程"
+    },
+    "OrderRemainVo": {
+      "type": "object",
+      "properties": {
+        "day": {
+          "type": "integer",
+          "format": "int64",
+          "description": "剩余天数"
+        },
+        "hour": {
+          "type": "integer",
+          "format": "int64",
+          "description": "剩余小时数"
+        },
+        "minute": {
+          "type": "integer",
+          "format": "int64",
+          "description": "剩余分钟数"
+        },
+        "second": {
+          "type": "integer",
+          "format": "int64",
+          "description": "剩余秒数"
+        }
+      },
+      "title": "OrderRemainVo",
+      "description": "订单剩余时间"
+    },
+    "OrderRequireDto": {
+      "type": "object",
+      "properties": {
+        "cateName": {
+          "type": "string",
+          "description": "需求类别名称"
+        },
+        "remark": {
+          "type": "string",
+          "description": "需求描述"
+        },
+        "requireCateId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "需求类别ID"
+        },
+        "requireId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "需求ID"
+        },
+        "requireName": {
+          "type": "string",
+          "description": "需求名称"
+        }
+      },
+      "title": "OrderRequireDto",
+      "description": "订单需求信息"
+    },
+    "OrderServiceDto": {
+      "type": "object",
+      "required": [
+        "orderId",
+        "orderProd"
+      ],
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "description": "订单ID"
+        },
+        "orderProd": {
+          "type": "array",
+          "description": "订单产品/服务",
+          "items": {
+            "$ref": "#/definitions/OrderProdDto"
+          }
+        }
+      },
+      "title": "OrderServiceDto",
+      "description": "订单服务方案"
+    },
+    "OrderVisitDto": {
+      "type": "object",
+      "required": [
+        "orderId",
+        "subscribeTime"
+      ],
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "description": "订单ID"
+        },
+        "subscribeTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "预约上门时间"
+        }
+      },
+      "title": "OrderVisitDto",
+      "description": "订单预约时间信息"
+    },
+    "OrderVo": {
+      "type": "object",
+      "required": [
+        "createTime",
+        "endTime",
+        "orderId",
+        "orderState"
+      ],
+      "properties": {
+        "abnormalCreateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "异常申请时间"
+        },
+        "abnormalRemark": {
+          "type": "string",
+          "example": "如：终止时为终止原因，争议时为争议原因",
+          "description": "异常原因"
+        },
+        "addr": {
+          "type": "string",
+          "description": "详细地址"
+        },
+        "area": {
+          "type": "string",
+          "description": "区县"
+        },
+        "badOrder": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 是,0 否",
+          "description": "是否恶意订单",
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "city": {
+          "type": "string",
+          "description": "城市"
+        },
+        "commentDesc": {
+          "type": "string",
+          "description": "评价内容"
+        },
+        "confirmTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "确认上门时间"
+        },
+        "consignee": {
+          "type": "string",
+          "description": "联系人"
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间"
+        },
+        "csServiceDesc": {
+          "type": "string",
+          "description": "服务描述(客服)"
+        },
+        "dealState": {
+          "type": "integer",
+          "format": "int32",
+          "example": "0 待处理 1 完成 5 处理中",
+          "description": "异常订单处理状态"
+        },
+        "dealSuggest": {
+          "type": "string",
+          "description": "处理结果"
+        },
+        "dispatchTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "派发/抢单时间"
+        },
+        "dispatchType": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 系统派发 2 抢单",
+          "description": "订单派发方式",
+          "enum": [
+            1,
+            2
+          ]
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "预约上门结束时间"
+        },
+        "engineerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "工程师ID"
+        },
+        "engineerMobile": {
+          "type": "string",
+          "description": "工程师电话"
+        },
+        "engineerName": {
+          "type": "string",
+          "description": "工程师姓名"
+        },
+        "finalFee": {
+          "type": "number",
+          "description": "最终费用"
+        },
+        "finishRemark": {
+          "type": "string",
+          "description": "完工备注"
+        },
+        "finishTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "完成时间"
+        },
+        "isComment": {
+          "type": "integer",
+          "format": "int32",
+          "example": "0 未评价 1 已评价",
+          "description": "是否已评价"
+        },
+        "materialFee": {
+          "type": "number",
+          "description": "材料总费用"
+        },
+        "mobile": {
+          "type": "string",
+          "description": "手机号码"
+        },
+        "orderCate": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 正常订单,2 退单订单,3 争议订单,4 终止订单,5 失联订单",
+          "description": "当前订单类别"
+        },
+        "orderCateName": {
+          "type": "string",
+          "description": "当前订单类别名称"
+        },
+        "orderCheck": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 已抽检 0 未抽检",
+          "description": "是否已抽检",
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "orderFocus": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 已关注,0 未关注",
+          "description": "是否已关注",
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "orderId": {
+          "type": "string",
+          "description": "订单ID"
+        },
+        "orderRemainVo": {
+          "description": "剩余时间",
+          "$ref": "#/definitions/OrderRemainVo"
+        },
+        "orderRemark": {
+          "type": "string",
+          "description": "订单完工备注"
+        },
+        "orderRequire": {
+          "type": "array",
+          "description": "订单需求",
+          "items": {
+            "$ref": "#/definitions/OrderRequireDto"
+          }
+        },
+        "orderState": {
+          "type": "integer",
+          "format": "int32",
+          "description": "订单状态"
+        },
+        "orderStateName": {
+          "type": "string",
+          "description": "订单状态名称"
+        },
+        "orderType": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 标准订单,2 非标准订单",
+          "description": "订单类型",
+          "enum": [
+            1,
+            2
+          ]
+        },
+        "orderTypeName": {
+          "type": "string",
+          "description": "订单类型名称"
+        },
+        "province": {
+          "type": "string",
+          "description": "省份"
+        },
+        "serviceFee": {
+          "type": "number",
+          "description": "服务总费用"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "预约上门开始时间"
+        },
+        "street": {
+          "type": "string",
+          "description": "街道"
+        },
+        "subscribeFee": {
+          "type": "number",
+          "description": "上门服务预约费"
+        },
+        "subscribeTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "预约上门时间"
+        },
+        "teamId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "班组ID"
+        },
+        "teamName": {
+          "type": "string",
+          "description": "班组名称"
+        },
+        "urgeOrder": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 是 0 否",
+          "description": "客户是否催单",
+          "enum": [
+            0,
+            1
+          ]
+        }
+      },
+      "title": "OrderVo",
+      "description": "订单信息"
+    },
+    "PageDto«EngineerOrderQueryDto»": {
+      "type": "object",
+      "required": [
+        "pageNum",
+        "pageSize"
+      ],
+      "properties": {
+        "data": {
+          "description": "查询条件",
+          "$ref": "#/definitions/EngineerOrderQueryDto"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "页号"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "example": 10,
+          "description": "页大小"
+        }
+      },
+      "title": "PageDto«EngineerOrderQueryDto»",
+      "description": "分页查询参数"
+    },
+    "PageDto«MemAddrQueryDto»": {
+      "type": "object",
+      "required": [
+        "pageNum",
+        "pageSize"
+      ],
+      "properties": {
+        "data": {
+          "description": "查询条件",
+          "$ref": "#/definitions/MemAddrQueryDto"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "页号"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "example": 10,
+          "description": "页大小"
+        }
+      },
+      "title": "PageDto«MemAddrQueryDto»",
+      "description": "分页查询参数"
+    },
+    "PageDto«MemOrderQueryDto»": {
+      "type": "object",
+      "required": [
+        "pageNum",
+        "pageSize"
+      ],
+      "properties": {
+        "data": {
+          "description": "查询条件",
+          "$ref": "#/definitions/MemOrderQueryDto"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "页号"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "example": 10,
+          "description": "页大小"
+        }
+      },
+      "title": "PageDto«MemOrderQueryDto»",
+      "description": "分页查询参数"
+    },
+    "PageInfo«MemAddrDto»": {
+      "type": "object",
+      "properties": {
+        "endRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hasNextPage": {
+          "type": "boolean"
+        },
+        "hasPreviousPage": {
+          "type": "boolean"
+        },
+        "isFirstPage": {
+          "type": "boolean"
+        },
+        "isLastPage": {
+          "type": "boolean"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MemAddrDto"
+          }
+        },
+        "navigateFirstPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigateLastPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatePages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatepageNums": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "nextPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "prePage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PageInfo«MemAddrDto»"
+    },
+    "PageInfo«OrderVo»": {
+      "type": "object",
+      "properties": {
+        "endRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hasNextPage": {
+          "type": "boolean"
+        },
+        "hasPreviousPage": {
+          "type": "boolean"
+        },
+        "isFirstPage": {
+          "type": "boolean"
+        },
+        "isLastPage": {
+          "type": "boolean"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderVo"
+          }
+        },
+        "navigateFirstPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigateLastPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatePages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "navigatepageNums": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "nextPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "prePage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startRow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PageInfo«OrderVo»"
+    },
+    "PartContentDto": {
+      "type": "object",
+      "required": [
+        "conName",
+        "imageId",
+        "partId"
+      ],
+      "properties": {
+        "conDesc": {
+          "type": "string",
+          "description": "内容简介"
+        },
+        "conId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "内容ID,修改时必填"
+        },
+        "conName": {
+          "type": "string",
+          "description": "内容名称"
+        },
+        "createBy": {
+          "type": "integer",
+          "format": "int64",
+          "description": "创建人"
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间"
+        },
+        "imageId": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 展示图"
+        },
+        "imagePath": {
+          "type": "string",
+          "description": "栏目图标路径:http://${contextPath}/image/${imagePath}}"
+        },
+        "isSystem": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否系统配置:1是0否"
+        },
+        "linkTarget": {
+          "type": "string",
+          "description": "链接目标"
+        },
+        "linkType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "链接类型"
+        },
+        "partId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "栏目ID"
+        },
+        "smallImageId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "小展示图,移动端展示图"
+        },
+        "smallImagePath": {
+          "type": "string",
+          "description": "栏目图标路径:http://${contextPath}/image/${smallImagePath}}"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "排序"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否启用 1 启用 0 停用"
+        }
+      },
+      "title": "PartContentDto",
+      "description": "栏目内容,修改时传修改属性,入参时传入必要属性,其他可空"
+    },
+    "ProdCateDto": {
+      "type": "object",
+      "required": [
+        "cateName"
+      ],
+      "properties": {
+        "cateDesc": {
+          "type": "string",
+          "description": "分类描述"
+        },
+        "cateName": {
+          "type": "string",
+          "description": "产品/服务类别名称"
+        },
+        "logoImageId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "产品/服务类别图片ID"
+        },
+        "logoImagePath": {
+          "type": "string",
+          "description": "产品/服务类别图片路径"
+        },
+        "prodCateId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "产品/服务类别ID"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "排序"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 启用,0 停用",
+          "description": "启用标志",
+          "enum": [
+            0,
+            1
+          ]
+        }
+      },
+      "title": "ProdCateDto",
+      "description": "产品/服务类别信息"
+    },
+    "ProdCateProdVo": {
+      "type": "object",
+      "properties": {
+        "prod": {
+          "type": "array",
+          "description": "产品/服务",
+          "items": {
+            "$ref": "#/definitions/ProdDto"
+          }
+        },
+        "prodCate": {
+          "description": "产品/服务类别",
+          "$ref": "#/definitions/ProdCateDto"
+        }
+      },
+      "title": "ProdCateProdVo",
+      "description": "产品/服务(带产品/服务类别)信息"
+    },
+    "ProdDto": {
+      "type": "object",
+      "required": [
+        "prodName",
+        "prodPrice",
+        "unit"
+      ],
+      "properties": {
+        "imageId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "产品/服务图片ID"
+        },
+        "prodCateId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "产品/服务类别ID"
+        },
+        "prodDesc": {
+          "type": "string",
+          "description": "产品/服务描述"
+        },
+        "prodId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "产品/服务ID"
+        },
+        "prodImagePath": {
+          "type": "string",
+          "description": "产品/服务封面图片"
+        },
+        "prodName": {
+          "type": "string",
+          "description": "产品/服务名称"
+        },
+        "prodPrice": {
+          "type": "number",
+          "description": "产品/服务价格"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "排序"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 启用,0 停用",
+          "description": "启用标志",
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "unit": {
+          "type": "string",
+          "example": "1 台,2 套...",
+          "description": "产品/服务价格单位"
+        },
+        "unitName": {
+          "type": "string",
+          "description": "产品/服务价格单位名称"
+        }
+      },
+      "title": "ProdDto",
+      "description": "产品/服务信息"
+    },
+    "RequestObject«AreaDictDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/AreaDictDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«AreaDictDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«EngineerOrderQueryDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/EngineerOrderQueryDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«EngineerOrderQueryDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«LbsAreaData»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/LbsAreaData"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«LbsAreaData»",
+      "description": "请求数据"
+    },
+    "RequestObject«LoginDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/LoginDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«LoginDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«MemAddrDefaultDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/MemAddrDefaultDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«MemAddrDefaultDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«MemAddrDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/MemAddrDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«MemAddrDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«MemDetailDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/MemDetailDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«MemDetailDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«MemJpushDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/MemJpushDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«MemJpushDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«MemOrderCommDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/MemOrderCommDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«MemOrderCommDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«MemOrderDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/MemOrderDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«MemOrderDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«MemOrderPayDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/MemOrderPayDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«MemOrderPayDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«OrderBackApplyDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/OrderBackApplyDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«OrderBackApplyDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«OrderDisputeDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/OrderDisputeDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«OrderDisputeDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«OrderFaultDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/OrderFaultDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«OrderFaultDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«OrderFinishDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/OrderFinishDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«OrderFinishDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«OrderLostDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/OrderLostDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«OrderLostDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«OrderServiceDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/OrderServiceDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«OrderServiceDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«OrderVisitDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/OrderVisitDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«OrderVisitDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«PageDto«EngineerOrderQueryDto»»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/PageDto«EngineerOrderQueryDto»"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«PageDto«EngineerOrderQueryDto»»",
+      "description": "请求数据"
+    },
+    "RequestObject«PageDto«MemAddrQueryDto»»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/PageDto«MemAddrQueryDto»"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«PageDto«MemAddrQueryDto»»",
+      "description": "请求数据"
+    },
+    "RequestObject«PageDto«MemOrderQueryDto»»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/PageDto«MemOrderQueryDto»"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«PageDto«MemOrderQueryDto»»",
+      "description": "请求数据"
+    },
+    "RequestObject«UserMobileDto»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "请求参数",
+          "$ref": "#/definitions/UserMobileDto"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«UserMobileDto»",
+      "description": "请求数据"
+    },
+    "RequestObject«Void»": {
+      "type": "object",
+      "properties": {
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«Void»",
+      "description": "请求数据"
+    },
+    "RequestObject«int»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "integer",
+          "format": "int32",
+          "description": "请求参数"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«int»",
+      "description": "请求数据"
+    },
+    "RequestObject«long»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "integer",
+          "format": "int64",
+          "description": "请求参数"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«long»",
+      "description": "请求数据"
+    },
+    "RequestObject«string»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string",
+          "description": "请求参数"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求ID 随机32位以内字符串"
+        }
+      },
+      "title": "RequestObject«string»",
+      "description": "请求数据"
+    },
+    "RequireCateDto": {
+      "type": "object",
+      "required": [
+        "cateName"
+      ],
+      "properties": {
+        "cateDesc": {
+          "type": "string",
+          "description": "分类描述"
+        },
+        "cateName": {
+          "type": "string",
+          "description": "需求类别名称"
+        },
+        "logoImageId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "需求类别图片ID"
+        },
+        "logoImagePath": {
+          "type": "string",
+          "description": "需求类别图片路径"
+        },
+        "requireCateId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "需求类别ID"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "排序"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 启用,0 停用",
+          "description": "启用标志",
+          "enum": [
+            0,
+            1
+          ]
+        }
+      },
+      "title": "RequireCateDto",
+      "description": "需求类别信息"
+    },
+    "RequireDto": {
+      "type": "object",
+      "required": [
+        "requireId"
+      ],
+      "properties": {
+        "cateName": {
+          "type": "string",
+          "description": "需求类别名称"
+        },
+        "imageId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "需求封面图片ID"
+        },
+        "requireCateId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "需求类别ID"
+        },
+        "requireDesc": {
+          "type": "string",
+          "description": "需求描述"
+        },
+        "requireId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "需求ID"
+        },
+        "requireImagePath": {
+          "type": "string",
+          "description": "需求封面图片路径"
+        },
+        "requireName": {
+          "type": "string",
+          "description": "需求名称"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "example": 10,
+          "description": "排序"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1 启用,0 停用",
+          "description": "启用标志",
+          "enum": [
+            0,
+            1
+          ]
+        }
+      },
+      "title": "RequireDto",
+      "description": "需求信息"
+    },
+    "Result«AreaData»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/AreaData"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«AreaData»",
+      "description": "返回响应数据"
+    },
+    "Result«EngineerOrderDto»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/EngineerOrderDto"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«EngineerOrderDto»",
+      "description": "返回响应数据"
+    },
+    "Result«EnginnerStarVo»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/EnginnerStarVo"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«EnginnerStarVo»",
+      "description": "返回响应数据"
+    },
+    "Result«List«AreaDto»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "array",
+          "description": "返回结果数据",
+          "items": {
+            "$ref": "#/definitions/AreaDto"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«List«AreaDto»»",
+      "description": "返回响应数据"
+    },
+    "Result«List«CommTagConfDto»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "array",
+          "description": "返回结果数据",
+          "items": {
+            "$ref": "#/definitions/CommTagConfDto"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«List«CommTagConfDto»»",
+      "description": "返回响应数据"
+    },
+    "Result«List«DictValueVo»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "array",
+          "description": "返回结果数据",
+          "items": {
+            "$ref": "#/definitions/DictValueVo"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«List«DictValueVo»»",
+      "description": "返回响应数据"
+    },
+    "Result«List«OrderProdDetailVo»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "array",
+          "description": "返回结果数据",
+          "items": {
+            "$ref": "#/definitions/OrderProdDetailVo"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«List«OrderProdDetailVo»»",
+      "description": "返回响应数据"
+    },
+    "Result«List«OrderRecordVo»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "array",
+          "description": "返回结果数据",
+          "items": {
+            "$ref": "#/definitions/OrderRecordVo"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«List«OrderRecordVo»»",
+      "description": "返回响应数据"
+    },
+    "Result«List«OrderVo»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "array",
+          "description": "返回结果数据",
+          "items": {
+            "$ref": "#/definitions/OrderVo"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«List«OrderVo»»",
+      "description": "返回响应数据"
+    },
+    "Result«List«PartContentDto»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "array",
+          "description": "返回结果数据",
+          "items": {
+            "$ref": "#/definitions/PartContentDto"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«List«PartContentDto»»",
+      "description": "返回响应数据"
+    },
+    "Result«List«ProdCateDto»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "array",
+          "description": "返回结果数据",
+          "items": {
+            "$ref": "#/definitions/ProdCateDto"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«List«ProdCateDto»»",
+      "description": "返回响应数据"
+    },
+    "Result«List«ProdCateProdVo»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "array",
+          "description": "返回结果数据",
+          "items": {
+            "$ref": "#/definitions/ProdCateProdVo"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«List«ProdCateProdVo»»",
+      "description": "返回响应数据"
+    },
+    "Result«List«ProdDto»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "array",
+          "description": "返回结果数据",
+          "items": {
+            "$ref": "#/definitions/ProdDto"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«List«ProdDto»»",
+      "description": "返回响应数据"
+    },
+    "Result«List«RequireCateDto»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "array",
+          "description": "返回结果数据",
+          "items": {
+            "$ref": "#/definitions/RequireCateDto"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«List«RequireCateDto»»",
+      "description": "返回响应数据"
+    },
+    "Result«List«RequireDto»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "array",
+          "description": "返回结果数据",
+          "items": {
+            "$ref": "#/definitions/RequireDto"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«List«RequireDto»»",
+      "description": "返回响应数据"
+    },
+    "Result«List«TeamAreaVo»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "array",
+          "description": "返回结果数据",
+          "items": {
+            "$ref": "#/definitions/TeamAreaVo"
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«List«TeamAreaVo»»",
+      "description": "返回响应数据"
+    },
+    "Result«MemAddrDto»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/MemAddrDto"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«MemAddrDto»",
+      "description": "返回响应数据"
+    },
+    "Result«MemDetailDto»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/MemDetailDto"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«MemDetailDto»",
+      "description": "返回响应数据"
+    },
+    "Result«MemOrderPayVo»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/MemOrderPayVo"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«MemOrderPayVo»",
+      "description": "返回响应数据"
+    },
+    "Result«OrderDetailVo»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/OrderDetailVo"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«OrderDetailVo»",
+      "description": "返回响应数据"
+    },
+    "Result«OrderVo»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/OrderVo"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«OrderVo»",
+      "description": "返回响应数据"
+    },
+    "Result«PageInfo«MemAddrDto»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/PageInfo«MemAddrDto»"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«PageInfo«MemAddrDto»»",
+      "description": "返回响应数据"
+    },
+    "Result«PageInfo«OrderVo»»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/PageInfo«OrderVo»"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«PageInfo«OrderVo»»",
+      "description": "返回响应数据"
+    },
+    "Result«RobOrderVo»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/RobOrderVo"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«RobOrderVo»",
+      "description": "返回响应数据"
+    },
+    "Result«SmConfVo»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/SmConfVo"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«SmConfVo»",
+      "description": "返回响应数据"
+    },
+    "Result«UserDto»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/UserDto"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«UserDto»",
+      "description": "返回响应数据"
+    },
+    "Result«Void»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«Void»",
+      "description": "返回响应数据"
+    },
+    "Result«WxAppPayVo»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/WxAppPayVo"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«WxAppPayVo»",
+      "description": "返回响应数据"
+    },
+    "Result«WxJsApiPayVo»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/WxJsApiPayVo"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«WxJsApiPayVo»",
+      "description": "返回响应数据"
+    },
+    "Result«WxOpenConfig»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/WxOpenConfig"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«WxOpenConfig»",
+      "description": "返回响应数据"
+    },
+    "Result«int»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "integer",
+          "format": "int32",
+          "description": "返回结果数据"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«int»",
+      "description": "返回响应数据"
+    },
+    "Result«long»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "integer",
+          "format": "int64",
+          "description": "返回结果数据"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«long»",
+      "description": "返回响应数据"
+    },
+    "Result«string»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "type": "string",
+          "description": "返回结果数据"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«string»",
+      "description": "返回响应数据"
+    },
+    "Result«用户信息»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/用户信息"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«用户信息»",
+      "description": "返回响应数据"
+    },
+    "Result«登录token»": {
+      "type": "object",
+      "properties": {
+        "busiSucc": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "响应代码-->>HttpStatus.*"
+        },
+        "data": {
+          "description": "返回结果数据",
+          "$ref": "#/definitions/登录token"
+        },
+        "message": {
+          "type": "string",
+          "description": "响应信息"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "请求序列号，与RequestObject.requestId一致"
+        },
+        "rescode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务代码"
+        }
+      },
+      "title": "Result«登录token»",
+      "description": "返回响应数据"
+    },
+    "RobOrderVo": {
+      "type": "object",
+      "properties": {
+        "errDesc": {
+          "type": "string",
+          "description": "失败描述"
+        },
+        "robSucc": {
+          "type": "boolean",
+          "example": false,
+          "description": "是否抢单成功"
+        }
+      },
+      "title": "RobOrderVo",
+      "description": "订单抢单结果"
+    },
+    "SmConfVo": {
+      "type": "object",
+      "properties": {
+        "csPhone": {
+          "type": "string",
+          "description": "客服电话"
+        },
+        "subscribeFee": {
+          "type": "number",
+          "description": "预约上门订金"
+        }
+      },
+      "title": "SmConfVo",
+      "description": "系统配置信息"
+    },
+    "SortDto": {
+      "type": "object",
+      "required": [
+        "key",
+        "sort"
+      ],
+      "properties": {
+        "key": {
+          "type": "string",
+          "example": "待接口联调时前后端约定",
+          "description": "排序key"
+        },
+        "sort": {
+          "type": "string",
+          "example": "asc",
+          "description": "排序方式",
+          "enum": [
+            "asc",
+            "desc"
+          ]
+        }
+      },
+      "title": "SortDto",
+      "description": "排序信息"
+    },
+    "TeamAreaVo": {
+      "type": "object",
+      "required": [
+        "areaId",
+        "cityId",
+        "companyId",
+        "createTime",
+        "members",
+        "provinceId",
+        "seqId",
+        "state",
+        "streetId",
+        "teamId"
+      ],
+      "properties": {
+        "areaId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "负责区域(区ID)"
+        },
+        "areaInfo": {
+          "type": "string",
+          "description": "负责区域:省/市/区/街道"
+        },
+        "areaName": {
+          "type": "string",
+          "description": "负责区域(区)"
+        },
+        "cityId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "负责区域(市ID)"
+        },
+        "cityName": {
+          "type": "string",
+          "description": "负责区域(市)"
+        },
+        "companyId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "班组所属分公司ID"
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间"
+        },
+        "members": {
+          "type": "integer",
+          "format": "int32",
+          "description": "成员数量"
+        },
+        "provinceId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "负责区域(省)"
+        },
+        "provinceName": {
+          "type": "string",
+          "description": "负责区域(省)"
+        },
+        "seqId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "键ID"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否启用:1启用,0停用,2待审核"
+        },
+        "streetId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "负责区域(街道Id)"
+        },
+        "streetName": {
+          "type": "string",
+          "description": "负责区域(街道)"
+        },
+        "teamHeaderMobile": {
+          "type": "string",
+          "description": "负责人电话"
+        },
+        "teamHeaderName": {
+          "type": "string",
+          "description": "班组负责人名称"
+        },
+        "teamId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "班组ID"
+        },
+        "teamName": {
+          "type": "string",
+          "description": "班组名称"
+        }
+      },
+      "title": "TeamAreaVo",
+      "description": "班组负责区域信息"
+    },
+    "UserDto": {
+      "type": "object",
+      "required": [
+        "companyId"
+      ],
+      "properties": {
+        "avatarId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "用户头像"
+        },
+        "avatarPath": {
+          "type": "string",
+          "description": "用户头像路径:http://${contextPath/image/${avatarPath}}"
+        },
+        "companyId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "所属分公司 无分公司时填0"
+        },
+        "companyName": {
+          "type": "string",
+          "description": "分公司名称"
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间"
+        },
+        "email": {
+          "type": "string",
+          "description": "邮箱地址"
+        },
+        "loginCode": {
+          "type": "string",
+          "description": "登录账号"
+        },
+        "loginPwd": {
+          "type": "string",
+          "description": "登录密码"
+        },
+        "mobile": {
+          "type": "string",
+          "description": "手机号码"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态,是否启用:1启用 0停用"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "用户ID，修改时必传"
+        },
+        "userName": {
+          "type": "string",
+          "description": "用户名称->会员名称、工程师名称"
+        }
+      },
+      "title": "UserDto",
+      "description": "用户信息"
+    },
+    "UserMobileDto": {
+      "type": "object",
+      "required": [
+        "authCode",
+        "mobile",
+        "reMobile"
+      ],
+      "properties": {
+        "authCode": {
+          "type": "string",
+          "description": "短信验证码"
+        },
+        "mobile": {
+          "type": "string",
+          "description": "原手机号"
+        },
+        "reMobile": {
+          "type": "string",
+          "description": "新手机号"
+        }
+      },
+      "title": "UserMobileDto",
+      "description": "更换手机号请求参数"
+    },
+    "WxAppPayVo": {
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string",
+          "description": "微信支付APPID"
+        },
+        "nonceStr": {
+          "type": "string",
+          "description": "随机字符串"
+        },
+        "partnerId": {
+          "type": "string",
+          "description": "商户号"
+        },
+        "prepayId": {
+          "type": "string",
+          "description": "预支付交易会话ID"
+        },
+        "sign": {
+          "type": "string",
+          "description": "签名"
+        },
+        "timeStamp": {
+          "type": "string",
+          "description": "时间戳"
+        },
+        "wxpayPackage": {
+          "type": "string",
+          "description": "扩展字段"
+        }
+      },
+      "title": "WxAppPayVo",
+      "description": "微信APP支付参数"
+    },
+    "WxJsApiPayVo": {
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string",
+          "description": "微信支付APPID"
+        },
+        "nonceStr": {
+          "type": "string",
+          "description": "随机字符串"
+        },
+        "sign": {
+          "type": "string",
+          "description": "签名"
+        },
+        "signType": {
+          "type": "string",
+          "example": "MD5",
+          "description": "签名类型"
+        },
+        "timeStamp": {
+          "type": "string",
+          "description": "时间戳"
+        },
+        "wxpayPackage": {
+          "type": "string",
+          "description": "扩展字段"
+        }
+      },
+      "title": "WxJsApiPayVo"
+    },
+    "WxOpenConfig": {
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string",
+          "description": "appId"
+        },
+        "appSecret": {
+          "type": "string",
+          "description": "appSecret"
+        }
+      },
+      "title": "WxOpenConfig",
+      "description": "微信开放平台配置信息"
+    },
+    "用户信息": {
+      "type": "object",
+      "properties": {
+        "avatarId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "头像图片Id"
+        },
+        "avatarPath": {
+          "type": "string",
+          "description": "头像图片URL:http://${contextPath}/image/${avatarUrl}"
+        },
+        "companyId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "分公司ID"
+        },
+        "email": {
+          "type": "string",
+          "description": "邮箱"
+        },
+        "isAdmin": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否超级管理员:1是,0否"
+        },
+        "lastTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "最后登陆时间"
+        },
+        "loginCode": {
+          "type": "string",
+          "description": "登录账号"
+        },
+        "loginTimes": {
+          "type": "integer",
+          "format": "int32",
+          "description": "登陆次数"
+        },
+        "mobile": {
+          "type": "string",
+          "description": "手机号码"
+        },
+        "permissions": {
+          "type": "array",
+          "description": "权限",
+          "items": {
+            "type": "string"
+          }
+        },
+        "roles": {
+          "type": "array",
+          "description": "角色",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sex": {
+          "type": "integer",
+          "format": "int32",
+          "description": "性别"
+        },
+        "state": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态:0无效,1正常"
+        },
+        "teamId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "班组ID"
+        },
+        "userDesc": {
+          "type": "string",
+          "description": "用户描述"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "用户ID"
+        },
+        "userName": {
+          "type": "string",
+          "description": "用户名称"
+        },
+        "userType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "用户类型:1 系统用户, 2 工程师, 9 客户"
+        }
+      },
+      "title": "用户信息"
+    },
+    "登录token": {
+      "type": "object",
+      "properties": {
+        "expire": {
+          "type": "integer",
+          "format": "int64",
+          "description": "有效时长"
+        },
+        "token": {
+          "type": "string",
+          "description": "令牌"
+        }
+      },
+      "title": "登录token"
+    }
+  }
+}
