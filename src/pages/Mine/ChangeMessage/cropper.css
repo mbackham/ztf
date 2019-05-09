@@ -1,0 +1,50 @@
+.v-simple-cropper {
+  .v-cropper-layer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 9999;
+    display: none;
+    .layer-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background: #fff;
+      width: 100%;
+      height: 70px;
+      padding-top:5px!important;
+      padding: 0 .2rem;
+      box-sizing: border-box;
+    }
+    .cancel{
+      line-height: .8rem;
+      font-size: 28px;
+      background: inherit;
+      border: 0;
+      outline: 0;
+      float: left;
+      margin-left:20px!important;
+    }
+    .confirm {
+      line-height: .8rem;
+      font-size: 28px;
+      background: inherit;
+      border: 0;
+      outline: 0;
+      float: left;
+      margin-right:20px;
+    }
+    .confirm {
+      float: right;
+    }
+    img {
+      position: inherit!important;
+      border-radius: inherit!important;
+      float: inherit!important;
+    }
+  }
+}

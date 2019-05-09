@@ -1,0 +1,13 @@
+
+.van-pull-refresh__head span{
+  position: absolute!important;
+  top:-30px!important;
+  width: 100%;
+  text-align: center;
+}
+.van-pull-refresh__loading span{
+  position: absolute!important;
+  top:-30px!important;
+  width: 100%;
+  text-align: center;
+}
